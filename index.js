@@ -6,6 +6,7 @@ const DEFAULT_RESPONSE = {
   status: "success",
 };
 const APP_STARTUP_DELAY_IN_SECONDS = process.env.APP_STARTUP_DELAY_IN_SECONDS || 0;
+const APP_TERMINATE_DELAY_IN_SECONDS = process.env.APP_TERMINATE_DELAY_IN_SECONDS || 0;
 
 const X_CRASH = "X-Crash";
 const X_WAIT = "X-Wait";
@@ -54,6 +55,11 @@ async function startApp() {
 
     res.status(responseStatusCode).json(response);
   });
+
+  if (APP_TERMINATE_DELAY_IN_SECONDS) {
+    console.log(`APP_TERMINATE: waiting for ${APP_TERMINATE_DELAY_IN_SECONDS} seconds to terminate the app`);
+    setTimeout(() => process.exit(1), APP_TERMINATE_DELAY_IN_SECONDS * 1000);
+  }
 
   if (APP_STARTUP_DELAY_IN_SECONDS) {
     console.log(`APP_PAUSE: waiting for ${APP_STARTUP_DELAY_IN_SECONDS} seconds to start the app`);
