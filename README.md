@@ -22,6 +22,8 @@ use below environment variables on container
 
 1. `APP_STARTUP_DELAY_IN_SECONDS` : to delay in app start, default is 0
 
+2. `APP_TERMINATE_DELAY_IN_SECONDS` : to delay in app termination, default is 0
+
 
 ### API Usage
 
