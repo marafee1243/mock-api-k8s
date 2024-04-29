@@ -1,0 +1,31 @@
+{
+  "name": "mock-api-k8s",
+  "version": "0.1.0",
+  "description": "Mock REST APIs for practicing Kubernetes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marafee1243/mock-api-k8s.git"
+  },
+  "keywords": [
+    "mock",
+    "rest",
+    "apis",
+    "for",
+    "kubernetes",
+    "k8s"
+  ],
+  "author": "MA Rafee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marafee1243/mock-api-k8s/issues"
+  },
+  "homepage": "https://github.com/marafee1243/mock-api-k8s#readme",
+  "dependencies": {
+    "express": "4.19.2"
+  }
+}
