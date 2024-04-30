@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const os = require('os');
 
 const APP_PORT = 3000;
 const DEFAULT_RESPONSE = {
@@ -23,6 +24,12 @@ async function delay(timeInSeconds) {
 
 function getHeader(req, key, defaultValue = undefined) {
   return req.headers[key.toLowerCase()] || defaultValue;
+}
+
+function generateLogs() {
+  setInterval(() => {
+    console.log(`${new Date().toISOString()} | ${os.hostname()} | APP_LOGS: generating dummy logs`);
+  }, 2 * 1000)
 }
 
 async function startApp() {
@@ -68,6 +75,7 @@ async function startApp() {
 
   app.listen(APP_PORT, async () => {
     console.log(`APP_READY: mock apis for kubernetes started on port ${APP_PORT}`);
+    generateLogs()
   });
 }
 
